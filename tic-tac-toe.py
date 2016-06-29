@@ -22,8 +22,8 @@ else:
 	print("\n\nYou have been assigned O")
 count =0
 #write a new cturn to make the computer smarter too instead of filling the places randomly
-'''
-def smart(cturn):
+
+def smart(board):
 	cpos = random.choice(status)
 	if(uch=='X'):
 		cch='O'
@@ -53,20 +53,39 @@ def smart(cturn):
 		cpos = 1
 	elif(board[1]==board[7]==cch and board[4]==' '):
 		cpos = 4
-	elif(board[2]==board[3]==cch and board[1]==' '):
+	elif(board[2]==board[5]==cch and board[8]==' '):
+		cpos = 8
+	elif(board[5]==board[8]==cch and board[2]==' '):
+		cpos = 2
+	elif(board[2]==board[8]==cch and board[5]==' '):
+		cpos = 5
+	elif(board[3]==board[6]==cch and board[9]==' '):
+		cpos = 9
+	elif(board[6]==board[9]==cch and board[3]==' '):
+		cpos = 3
+	elif(board[3]==board[9]==cch and board[6]==' '):
+		cpos = 6
+	elif(board[1]==board[5]==cch and board[9]==' '):
+		cpos = 9
+	elif(board[5]==board[9]==cch and board[1]==' '):
 		cpos = 1
-	elif(board[2]==board[3]==cch and board[1]==' '):
-		cpos = 1
-	elif(board[2]==board[3]==cch and board[1]==' '):
-		cpos = 1
-	elif(board[2]==board[3]==cch and board[1]==' '):
-		cpos = 1
+	elif(board[1]==board[9]==cch and board[5]==' '):
+		cpos = 5
+	elif(board[3]==board[5]==cch and board[7]==' '):
+		cpos = 7
+	elif(board[5]==board[7]==cch and board[3]==' '):
+		cpos = 3
+	elif(board[3]==board[7]==cch and board[5]==' '):
+		cpos = 5
+	else:
+		cpos = random.choice(status)
+	
 	
 	board[cpos]=cch
 	status.remove(cpos)
-		
-'''
-def cturn(board):
+	
+
+def non_smart(board):
 	cpos = random.choice(status)
 	if(uch=='X'):
 		cch='O'
@@ -146,7 +165,7 @@ while(True):
 	
 	
 	
-	cturn(board)
+	smart(board)
 	count+=1
 	printBoard(board)
 	if(checkBoard(board)==1 or checkBoard(board)==2):
